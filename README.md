@@ -1,4 +1,3 @@
-```markdown
 # ClinicOS – Doctor & Receptionist Management System
 
 ## Table of Contents
@@ -247,3 +246,4 @@ Free to use, modify, and deploy for development and learning purposes.
 
 **Amar Tarmale**
 Internship Project – Full Stack Web Development
+
