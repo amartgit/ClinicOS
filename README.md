@@ -230,7 +230,7 @@ service cloud.firestore {
 
 Access ClinicOS online via Firebase Hosting:
 
-**[View ClinicOS Live](https://your-firebase-project.web.app/)**
+**[View ClinicOS Live](https://clinicos-c5e75.web.app/)**
 
 *(Replace the URL with your actual deployed Firebase Hosting URL)*
 
@@ -246,4 +246,5 @@ Free to use, modify, and deploy for development and learning purposes.
 
 **Amar Tarmale**
 Internship Project – Full Stack Web Development
+
 
