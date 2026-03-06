@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging Out – ClinicOS</title>
+    <meta name="description" content="Quick logout page for ClinicOS.">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; font-family: 'Inter', sans-serif; background: #f5f5f5; }
+        .logout-container { text-align: center; }
+        .loader-ring { width: 50px; height: 50px; border: 5px solid #4F8EF7; border-radius: 50%; border-top-color: transparent; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <div class="loader-ring"></div>
+        <p>Logging out... Please wait.</p>
+    </div>
+
+    <script type="module">
+        import { signOut } from './js/auth.js';
+
+        (async () => {
+            try {
+                await signOut();
+            } catch (err) {
+                console.error("Logout error:", err);
+            } finally {
+                // Redirect to login page after logout
+                window.location.href = "index.html";
+            }
+        })();
+    </script>
+</body>
+</html>

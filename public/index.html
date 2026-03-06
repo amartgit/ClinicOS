@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClinicOS – Clinic Management System</title>
+  <meta name="description" content="Professional Clinic Management System with role-based access for Doctors and Receptionists." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body class="login-page">
+
+  <!-- Loading Overlay -->
+  <div id="global-loader" class="global-loader">
+    <div class="loader-content">
+      <div class="loader-ring"></div>
+      <p>Loading ClinicOS...</p>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <div class="login-wrapper">
+    <!-- Left Panel -->
+    <div class="login-left">
+      <div class="brand-area">
+        <div class="brand-logo">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <rect width="40" height="40" rx="12" fill="#4F8EF7"/>
+            <path d="M20 8v24M8 20h24" stroke="white" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <span class="brand-name">ClinicOS</span>
+        </div>
+        <p class="brand-tagline">Professional Healthcare Management</p>
+      </div>
+      <div class="left-illustration">
+        <div class="stat-card-float stat-card-float--1">
+          <div class="stat-icon">👨‍⚕️</div>
+          <div class="stat-info"><span class="stat-num">48</span><span class="stat-lbl">Patients Today</span></div>
+        </div>
+        <div class="stat-card-float stat-card-float--2">
+          <div class="stat-icon">💊</div>
+          <div class="stat-info"><span class="stat-num">₹12,400</span><span class="stat-lbl">Today's Revenue</span></div>
+        </div>
+        <div class="stat-card-float stat-card-float--3">
+          <div class="stat-icon">📋</div>
+          <div class="stat-info"><span class="stat-num">6</span><span class="stat-lbl">Pending Bills</span></div>
+        </div>
+        <div class="illustration-circle circle-1"></div>
+        <div class="illustration-circle circle-2"></div>
+        <div class="illustration-circle circle-3"></div>
+      </div>
+      <div class="left-footer">
+        <p>Trusted by healthcare professionals</p>
+        <div class="trust-badges">
+          <span class="badge">🔒 Secure</span>
+          <span class="badge">☁️ Cloud</span>
+          <span class="badge">📱 Responsive</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Login Form -->
+    <div class="login-right">
+      <div class="login-card">
+        <div class="login-header">
+          <h1>Welcome Back</h1>
+          <p>Sign in to your ClinicOS account</p>
+        </div>
+
+        <!-- Role Tabs -->
+        <div class="role-tabs" id="role-tabs">
+          <button class="role-tab active" data-role="doctor" id="tab-doctor">
+            <span class="tab-icon">👨‍⚕️</span> Doctor
+          </button>
+          <button class="role-tab" data-role="receptionist" id="tab-receptionist">
+            <span class="tab-icon">💼</span> Receptionist
+          </button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" novalidate>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <input type="email" id="email" name="email" placeholder="doctor@clinic.com" required autocomplete="email" />
+            </div>
+            <span class="field-error" id="email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <input type="password" id="password" name="password" placeholder="••••••••" required autocomplete="current-password" />
+              <button type="button" class="toggle-password" id="toggle-password" aria-label="Toggle password visibility">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+            <span class="field-error" id="password-error"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-login" id="login-btn">
+            <span class="btn-text">Sign In</span>
+            <div class="btn-spinner" style="display:none;"></div>
+          </button>
+        </form>
+
+        <div class="login-footer">
+          <p>Protected by Firebase Authentication</p>
+          <p class="demo-hint" id="demo-hint">
+            <strong>Demo:</strong> doctor@clinic.com / doctor123
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="js/firebase-config.js"></script>
+  <script type="module" src="js/test.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>
