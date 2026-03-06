@@ -1,3 +1,4 @@
+```markdown
 # ClinicOS – Doctor & Receptionist Management System
 
 ## Table of Contents
@@ -68,25 +69,29 @@ Key functionalities include:
 ---
 
 ## Project Structure
+
+```
+
 /clinicOS
 │
-├── index.html # Login page
-├── doctor.html # Doctor dashboard
-├── receptionist.html # Receptionist dashboard
+├── index.html             # Login page
+├── doctor.html            # Doctor dashboard
+├── receptionist.html      # Receptionist dashboard
 ├── css/
-│ ├── main.css
-│ ├── login.css
-│ └── dashboard.css
+│   ├── main.css
+│   ├── login.css
+│   └── dashboard.css
 ├── js/
-│ ├── firebase-config.js
-│ ├── auth.js
-│ ├── db.js
-│ ├── ui.js
-│ ├── login.js
-│ ├── doctor.js
-│ └── receptionist.js
+│   ├── firebase-config.js
+│   ├── auth.js
+│   ├── db.js
+│   ├── ui.js
+│   ├── login.js
+│   ├── doctor.js
+│   └── receptionist.js
 └── README.md
 
+````
 
 ---
 
@@ -123,10 +128,13 @@ npm install -g firebase-tools
 
 # Serve locally
 firebase serve
+````
 
-Open http://localhost:5000 to test.
+Open `http://localhost:5000` to test.
 
-Deploy to Firebase Hosting
+### Deploy to Firebase Hosting
+
+```bash
 # Login to Firebase
 firebase login
 
@@ -135,44 +143,47 @@ firebase init hosting
 
 # Deploy
 firebase deploy --only hosting
-Usage
-Login
+```
 
-Doctor demo: doctor@clinic.com / doctor123
+---
 
-Receptionist demo: recp@clinic.com / recp123
+## Usage
 
-Doctor
+### Login
 
-View today’s patients and pending queue
+* Doctor demo: `doctor@clinic.com / doctor123`
+* Receptionist demo: `recp@clinic.com / recp123`
 
-Start consultation → add prescription → save
+### Doctor
 
-View patient history
+* View today’s patients and pending queue
+* Start consultation → add prescription → save
+* View patient history
 
-Receptionist
+### Receptionist
 
-Register patient → auto-generate token and bill
+* Register patient → auto-generate token and bill
+* Manage payments (mark as Paid/Unpaid)
+* Search patients and view profiles
 
-Manage payments (mark as Paid/Unpaid)
+---
 
-Search patients and view profiles
+## Logging & Monitoring
 
-Logging & Monitoring
+All login attempts (success or failure) are logged in `auth_logs`:
 
-All login attempts (success or failure) are logged in auth_logs:
-
-uid (if available)
-
-action (login-success, login-failed, logout)
-
-message
-
-timestamp
+* `uid` (if available)
+* `action` (login-success, login-failed, logout)
+* `message`
+* `timestamp`
 
 Admins can review logs via Firebase console.
 
-Firestore Security Rules
+---
+
+## Firestore Security Rules
+
+```js
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -202,35 +213,37 @@ service cloud.firestore {
     }
   }
 }
+```
 
-✅ Only receptionists can read/write patient, appointment, and billing data.
-✅ Users can read their own profile.
+---
 
-Future Enhancements
+## Future Enhancements
 
-Real-time notifications for new patients
+* Real-time notifications for new patients
+* SMS/email reminders for appointments
+* PDF export of prescriptions and bills
+* Role-based UI improvements for doctors and receptionists
+* Multi-clinic support
 
-SMS/email reminders for appointments
+---
 
-PDF export of prescriptions and bills
+## Live Demo
 
-Role-based UI improvements for doctors and receptionists
+Access ClinicOS online via Firebase Hosting:
 
-Multi-clinic support
+**[View ClinicOS Live](https://your-firebase-project.web.app/)**
 
-Live Demo
+*(Replace the URL with your actual deployed Firebase Hosting URL)*
 
-Access ClinicOS online (Firebase Hosting):
+---
 
-View ClinicOS Live
-
-(Replace the URL with your actual deployed Firebase Hosting URL)
-
-License
+## License
 
 Free to use, modify, and deploy for development and learning purposes.
 
-Author
+---
 
-Amar Tarmale
+## Author
+
+**Amar Tarmale**
 Internship Project – Full Stack Web Development
